@@ -124,7 +124,7 @@
                         <div class="price-list">
                             <h3>{{$product->price}} AZN</h3>
                         </div>
-                        <div class="cart-wrapper">
+                        <!-- <div class="cart-wrapper">
                             <div class="quantity-basket">
                                 <p class="qty">
                                     <button class="qtyminus" aria-hidden="true">−</button>
@@ -134,9 +134,9 @@
                             </div>
                             <button type="button" class="theme-btn style-2" data-bs-toggle="modal" data-bs-target="#readMoreModal">
                                 Read A little
-                            </button>
+                            </button> -->
                             <!-- Read More Modal -->
-                            <div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
+                            <!-- <div class="modal fade" id="readMoreModal" tabindex="-1" aria-labelledby="readMoreModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-body" style="background-image: url(assets/img/popupBg.png);">
@@ -163,8 +163,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <a href="shop-details.html" class="theme-btn"><i
+                            </div> -->
+                            <!-- <a href="shop-details.html" class="theme-btn"><i
                                     class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
                             <div class="icon-box">
                                 <a href="shop-details.html" class="icon">
@@ -173,8 +173,8 @@
                                 <a href="shop-details.html" class="icon-2">
                                     <img src="{{asset('assets/front/img/icon/shuffle.svg')}}" alt="svg-icon">
                                 </a>
-                            </div>
-                        </div>
+                            </div> -->
+                        <!-- </div> -->
                         <div class="category-box">
                             <div class="category-list">
                                 <ul>
@@ -420,23 +420,11 @@
         </div>
         <div class="swiper book-slider">
             <div class="swiper-wrapper">
+                @foreach($relatedProducts as $produc)
                 <div class="swiper-slide">
                     <div class="shop-box-items style-2">
                         <div class="book-thumb center">
-                            <a href="shop-details"><img src="assets/img/book/01.png" alt="img"></a>
-                            <ul class="post-box">
-                                <li>
-                                    Hot
-                                </li>
-                                <li>
-                                    -30%
-                                </li>
-                            </ul>
-                            <ul class="shop-icon d-grid justify-content-center align-items-center">
-                                <li>
-                                    <a href="shop-cart.html"><i class="far fa-heart"></i></a>
-                                </li>
-                            </ul>
+                            <a href="{{route('app.shop',['id' => $produc->id])}}"><img src="{{Storage::url($produc->image)}}" alt="img"></a>
                             <ul class="shop-icon d-grid justify-content-center align-items-center">
                                 <li>
                                     <a href="shop-cart.html"><i class="far fa-heart"></i></a>
@@ -444,7 +432,7 @@
                                 <li>
                                     <a href="shop-cart.html">
 
-                                        <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
+                                        <img class="icon" src="{{asset('assets/front/img/icon/shuffle.svg')}}" alt="svg-icon">
                                     </a>
                                 </li>
                                 <li>
@@ -453,20 +441,20 @@
                             </ul>
                         </div>
                         <div class="shop-content">
-                            <h5> Design Low Book </h5>
-                            <h3><a href="shop-details.html">Simple Things You To <br> Save BOOK</a></h3>
+                            <h5> {{$produc->category->name}} </h5>
+                            <h3><a href="shop-details.html">{{$produc->name}}</a></h3>
                             <ul class="price-list">
-                                <li>$30.00</li>
-                                <li>
+                                <li>{{$produc->price}} AZN</li>
+                                <!-- <li>
                                     <del>$39.99</del>
-                                </li>
+                                </li> -->
                             </ul>
                             <ul class="author-post">
                                 <li class="authot-list">
                                     <span class="thumb">
-                                        <img src="assets/img/testimonial/client-1.png" alt="img">
+                                        <img src="{{Storage::url($produc->author->image)}}" alt="img" width="30">
                                     </span>
-                                    <span class="content">Wilson</span>
+                                    <span class="content">{{$produc->author->fullname}}</span>
                                 </li>
 
                                 <li class="star">
@@ -484,215 +472,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="shop-box-items style-2">
-                        <div class="book-thumb center">
-                            <a href="shop-details"><img src="assets/img/book/02.png" alt="img"></a>
-                            <ul class="shop-icon d-grid justify-content-center align-items-center">
-                                <li>
-                                    <a href="shop-cart.html"><i class="far fa-heart"></i></a>
-                                </li>
-                                <li>
-                                    <a href="shop-cart.html">
-
-                                        <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="shop-details.html"><i class="far fa-eye"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="shop-content">
-                            <h5> Design Low Book </h5>
-                            <h3><a href="shop-details.html">How Deal With Very <br> Bad BOOK</a></h3>
-                            <ul class="price-list">
-                                <li>$30.00</li>
-                                <li>
-                                    <del>$39.99</del>
-                                </li>
-                            </ul>
-                            <ul class="author-post">
-                                <li class="authot-list">
-                                    <span class="thumb">
-                                        <img src="assets/img/testimonial/client-2.png" alt="img">
-                                    </span>
-                                    <span class="content">Alexander</span>
-                                </li>
-
-                                <li class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="shop-button">
-                            <a href="shop-details.html" class="theme-btn"><i
-                                    class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="shop-box-items style-2">
-                        <div class="book-thumb center">
-                            <a href="shop-details"><img src="assets/img/book/03.png" alt="img"></a>
-                            <ul class="shop-icon d-grid justify-content-center align-items-center">
-                                <li>
-                                    <a href="shop-cart.html"><i class="far fa-heart"></i></a>
-                                </li>
-                                <li>
-                                    <a href="shop-cart.html">
-
-                                        <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="shop-details.html"><i class="far fa-eye"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="shop-content">
-                            <h5> Design Low Book </h5>
-                            <h3><a href="shop-details.html">Qple GPad With Retina <br> Sisplay</a></h3>
-                            <ul class="price-list">
-                                <li>$30.00</li>
-                                <li>
-                                    <del>$39.99</del>
-                                </li>
-                            </ul>
-                            <ul class="author-post">
-                                <li class="authot-list">
-                                    <span class="thumb">
-                                        <img src="assets/img/testimonial/client-3.png" alt="img">
-                                    </span>
-                                    <span class="content">Esther</span>
-                                </li>
-
-                                <li class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="shop-button">
-                            <a href="shop-details.html" class="theme-btn"><i
-                                    class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="shop-box-items style-2">
-                        <div class="book-thumb center">
-                            <a href="shop-details"><img src="assets/img/book/04.png" alt="img"></a>
-                            <ul class="post-box">
-                                <li>
-                                    Hot
-                                </li>
-                            </ul>
-                            <ul class="shop-icon d-grid justify-content-center align-items-center">
-                                <li>
-                                    <a href="shop-cart.html"><i class="far fa-heart"></i></a>
-                                </li>
-                                <li>
-                                    <a href="shop-cart.html">
-
-                                        <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="shop-details.html"><i class="far fa-eye"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="shop-content">
-                            <h5> Design Low Book </h5>
-                            <h3><a href="shop-details.html">Qple GPad With Retina <br> Sisplay</a></h3>
-                            <ul class="price-list">
-                                <li>$30.00</li>
-                                <li>
-                                    <del>$39.99</del>
-                                </li>
-                            </ul>
-                            <ul class="author-post">
-                                <li class="authot-list">
-                                    <span class="thumb">
-                                        <img src="assets/img/testimonial/client-4.png" alt="img">
-                                    </span>
-                                    <span class="content">Hawkins</span>
-                                </li>
-
-                                <li class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="shop-button">
-                            <a href="shop-details.html" class="theme-btn"><i
-                                    class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="shop-box-items style-2">
-                        <div class="book-thumb center">
-                            <a href="shop-details"><img src="assets/img/book/05.png" alt="img"></a>
-                            <ul class="shop-icon d-grid justify-content-center align-items-center">
-                                <li>
-                                    <a href="shop-cart.html"><i class="far fa-heart"></i></a>
-                                </li>
-                                <li>
-                                    <a href="shop-cart.html">
-
-                                        <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="shop-details.html"><i class="far fa-eye"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="shop-content">
-                            <h5> Design Low Book </h5>
-                            <h3><a href="shop-details.html">Simple Things You To <br> Save BOOK</a></h3>
-                            <ul class="price-list">
-                                <li>$30.00</li>
-                                <li>
-                                    <del>$39.99</del>
-                                </li>
-                            </ul>
-                            <ul class="author-post">
-                                <li class="authot-list">
-                                    <span class="thumb">
-                                        <img src="assets/img/testimonial/client-5.png" alt="img">
-                                    </span>
-                                    <span class="content">(Author) Albert</span>
-                                </li>
-
-                                <li class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="shop-button">
-                            <a href="shop-details.html" class="theme-btn"><i
-                                    class="fa-solid fa-basket-shopping"></i> Add To Cart</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+               
             </div>
         </div>
     </div>

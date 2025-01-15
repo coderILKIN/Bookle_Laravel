@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $this->belongsTo(Author::class, 'author_id');
     }
+
+    public function orderProducts()
+    {
+        return $this->hasMany(OrderProduct::class, 'product_id');
+    }
 }

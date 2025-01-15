@@ -5,7 +5,7 @@
             <div class="offcanvas__content">
                 <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                     <div class="offcanvas__logo">
-                        <a href="index.html">
+                        <a href="{{route('app.home')}}">
                             <img src="{{$setting ?  Storage::url($setting->logo_image)  : ''}}" alt="logo-img">
                         </a>
                     </div>
@@ -123,7 +123,7 @@
                     <div class="col-6 col-md-6 col-lg-10 col-xl-8 col-xxl-10">
                         <div class="header-left">
                             <div class="logo">
-                                <a href="index.html" class="header-logo">
+                                <a href="{{route('app.home')}}" class="header-logo">
                                     <img src="{{$setting ? Storage::url($setting->logo_image) : ''}}" alt="logo-img">
                                 </a>
                             </div>
@@ -225,7 +225,7 @@
                     <div class="col-6 col-md-6 col-lg-10 col-xl-8 col-xxl-10">
                         <div class="header-left">
                             <div class="logo">
-                                <a href="index.html" class="header-logo">
+                                <a href="{{route('app.home')}}" class="header-logo">
                                     <img src="{{$setting ? Storage::url($setting->logo_image): ''}}" alt="logo-img">
                                 </a>
                             </div>
