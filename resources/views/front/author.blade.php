@@ -67,7 +67,7 @@
                                     <li>
                                         <a href="shop-cart.html">
 
-                                            <img class="icon" src="assets/img/icon/shuffle.svg" alt="svg-icon">
+                                            <img class="icon" src="{{asset('assets/front/img/icon/shuffle.svg')}}" alt="svg-icon">
                                         </a>
                                     </li>
                                     <li>
@@ -76,20 +76,20 @@
                                 </ul>
                             </div>
                             <div class="shop-content">
-                                <h5> Design Low Book </h5>
+                                <h5> {{$rProduc->category->name}} </h5>
                                 <h3><a href="shop-details.html">{{$rProduc->name}}</a></h3>
                                 <ul class="price-list">
-                                    <li>$30.00</li>
-                                    <li>
+                                    <li>{{$rProduc->price}} AZN</li>
+                                    <!-- <li>
                                         <del>$39.99</del>
-                                    </li>
+                                    </li> -->
                                 </ul>
                                 <ul class="author-post">
                                     <li class="authot-list">
                                         <span class="thumb">
-                                            <img src="assets/img/testimonial/client-2.png" alt="img">
+                                            <img src="{{Storage::url($rProduc->author->image)}}" alt="img" width="30">
                                         </span>
-                                        <span class="content">Alexander</span>
+                                        <span class="content">{{$rProduc->author->fullname}}</span>
                                     </li>
 
                                     <li class="star">
